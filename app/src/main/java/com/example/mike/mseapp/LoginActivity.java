@@ -3,23 +3,20 @@ package com.example.mike.mseapp;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.app.LoaderManager.LoaderCallbacks;
-
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
-
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -114,14 +111,16 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     }
 
     public void authenticateLogin(View view) {
-        findViewById(R.id.email1);
-        String email = findViewById(R.id.email1).toString();
-        String pwd = findViewById(R.id.password1).toString();
+
+        TextView emailText = (TextView) findViewById(R.id.email);
+        TextView passText = (TextView) findViewById(R.id.password);
+
+        String email = emailText.getText().toString();
+        String pwd = passText.getText().toString();
 
         boolean pass = authenticate(email, pwd);
-        pass=true;
         if (pass) {
-            Intent intent = new Intent(this, SchedulingActivity.class);
+            Intent intent = new Intent(this, IncidentListActivity.class);
             startActivity(intent);
         }
     }
@@ -134,10 +133,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     }
     private boolean authenticate(String email, String pwd) {
 
-        String userCredentials = email+","+pwd;
+        String userCredentials = email+"'"+pwd;
         String s = read_file(FILENAME);
 
-        if (userCredentials.contentEquals(s))
+        if (s.contains(userCredentials))
             return true;
         return false;
     }
