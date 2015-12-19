@@ -25,14 +25,10 @@ public class IncidentMgr {
     }
 
     private void addFakeData(String location,double latitude, double longitude, String tripInfo) {
-        String name = "Michael Norris";
-        String phone = "609-817-3516";
         Date date = Calendar.getInstance().getTime();
-        String email = "michaelv.norris@gmail.com";
 
         // add appoint to mgr
-        Incidents appt = new Incidents(name,phone,date,email, location, latitude,
-                longitude,tripInfo);
+        Incidents appt = new Incidents(date, location, latitude,longitude,tripInfo);
         this.addNewAppt(appt);
     }
 
@@ -56,8 +52,6 @@ public class IncidentMgr {
             return false;
         }
         Incidents appt = apptMap.get(index);
-        appt.setName("Norris Michael");
-        appt.setEmail("norris.mic@gmail.com");
         appt.setDate(new Date(0));
         return true;
     }

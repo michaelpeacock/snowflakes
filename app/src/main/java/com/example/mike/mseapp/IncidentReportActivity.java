@@ -73,24 +73,6 @@ public class IncidentReportActivity extends AppCompatActivity {
     private void addButtonAction(View view) {
         System.out.println("Add Button pressed");
 
-        // get name
-        String name = "";
-        TextView nameText = (TextView) findViewById(R.id.nameEditText);
-        if(!nameText.getText().toString().equalsIgnoreCase(name)) {
-            name = nameText.getText().toString();
-        } else {
-            name = "Michael Norris";
-        }
-
-        // get phone number
-        String phone = "";
-        TextView numText = (TextView) findViewById(R.id.phoneEditText);
-        if(!numText.getText().toString().equalsIgnoreCase(phone)) {
-            phone = numText.getText().toString();
-        } else {
-            phone = "609-817-3516";
-        }
-
         // get date/time
         Date date = Calendar.getInstance().getTime();
         TextView dateText = (TextView) findViewById(R.id.dateEditText);
@@ -107,15 +89,6 @@ public class IncidentReportActivity extends AppCompatActivity {
         }
         System.out.println("mvn Date: "+dateString);
         System.out.println("mvn Time: "+timeString);
-
-        //get email
-        String email = "";
-        TextView emailText = (TextView) findViewById(R.id.emailEditText);
-        if(!emailText.getText().toString().equalsIgnoreCase(email)) {
-            email = emailText.getText().toString();
-        } else {
-            email = "michaelv.norris@gmail.com";
-        }
 
         // get location
         String location = "";
@@ -152,8 +125,7 @@ public class IncidentReportActivity extends AppCompatActivity {
             tripInfo = "Look out for polar bears.";
         }
         // add appoint to mgr
-        Incidents appt = new Incidents(name,phone,date,email, location, latitude,
-                longitude,tripInfo);
+        Incidents appt = new Incidents(date, location, latitude, longitude,tripInfo);
         incidentMgr.addNewAppt(appt);
         showApptActivity();
 

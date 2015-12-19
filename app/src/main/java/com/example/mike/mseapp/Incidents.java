@@ -7,10 +7,7 @@ import java.util.Date;
 public class Incidents {
 
 
-    private String name;
-    private String phone;
     private Date date;
-    private String email;
     private String location;
     private double latitude;
     private double longitude;
@@ -19,11 +16,8 @@ public class Incidents {
     private int id = 0;
 
 
-    public Incidents(String name, String phone, Date date, String email, String location, double latitude, double longitude, String tripInfo) {
-        this.name = name;
-        this.phone = phone;
+    public Incidents(Date date, String location, double latitude, double longitude, String tripInfo) {
         this.date = date;
-        this.email = email;
         this.location = location;
         this.latitude = latitude;
         this.longitude = longitude;
@@ -34,9 +28,7 @@ public class Incidents {
     @Override
     public String toString() {
         DateFormat.getDateTimeInstance();
-        return  "Name:" + name + '\n' +
-                "E-mail:" + email + '\n' +
-                "Phone:" +  phone + '\n' +
+        return
                 "Date:" +  DateFormat.getDateInstance().format(date) + '\n' +
                 "Time:" +DateFormat.getTimeInstance().format(date) + '\n' +
                 "ID#:" + id + '\n' +
@@ -46,21 +38,11 @@ public class Incidents {
                 "Trip Information:" + tripInfo;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public void setDate(Date date) {
         this.date = date;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getName() {
-        return name;
-    }
 
     public String getLocation() {
         return location;
@@ -82,9 +64,6 @@ public class Incidents {
         return date;
     }
 
-    public String getEmail() {
-        return email;
-    }
 
     public int getId() {
         return id;

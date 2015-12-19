@@ -29,63 +29,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Name"
-            android:id="@+id/nameTextView"
-            android:layout_row="0"
-            android:layout_column="0" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/nameEditText"
-            android:layout_row="0"
-            android:layout_column="1" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Phone#"
-            android:id="@+id/phoneTextView"
-            android:layout_row="1"
-            android:layout_column="0" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="phone"
-            android:ems="10"
-            android:id="@+id/phoneEditText"
-            android:layout_row="1"
-            android:layout_column="1" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Email"
-            android:id="@+id/emailTextView"
-            android:layout_row="2"
-            android:layout_column="0" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
-            android:ems="10"
-            android:id="@+id/emailEditText"
-            android:layout_row="2"
-            android:layout_column="1" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Date"
             android:id="@+id/dateTextView"
-            android:layout_row="3"
+            android:layout_row="0"
             android:layout_column="0" />
 
         <EditText
@@ -94,7 +40,7 @@
             android:inputType="date"
             android:ems="10"
             android:id="@+id/dateEditText"
-            android:layout_row="3"
+            android:layout_row="0"
             android:layout_column="1" />
 
         <TextView
@@ -103,7 +49,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Time"
             android:id="@+id/timeTextView"
-            android:layout_row="4"
+            android:layout_row="1"
             android:layout_column="0" />
 
         <EditText
@@ -112,7 +58,7 @@
             android:inputType="time"
             android:ems="10"
             android:id="@+id/timeEditText"
-            android:layout_row="4"
+            android:layout_row="1"
             android:layout_column="1" />
 
         <TextView
@@ -121,7 +67,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Location"
             android:id="@+id/locationTextView"
-            android:layout_row="5"
+            android:layout_row="2"
             android:layout_column="0" />
 
         <EditText
@@ -130,7 +76,7 @@
             android:inputType="textPostalAddress"
             android:ems="10"
             android:id="@+id/locationEditText"
-            android:layout_row="5"
+            android:layout_row="2"
             android:layout_column="1" />
 
         <TextView
@@ -139,7 +85,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Latitude"
             android:id="@+id/latitudeTextView3"
-            android:layout_row="6"
+            android:layout_row="3"
             android:layout_column="0" />
 
         <EditText
@@ -148,7 +94,7 @@
             android:inputType="numberSigned|numberDecimal"
             android:ems="10"
             android:id="@+id/latEditText2"
-            android:layout_row="6"
+            android:layout_row="3"
             android:layout_column="1" />
 
         <TextView
@@ -157,7 +103,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Longitude"
             android:id="@+id/textView4"
-            android:layout_row="7"
+            android:layout_row="4"
             android:layout_column="0" />
 
         <EditText
@@ -166,7 +112,7 @@
             android:inputType="numberSigned|numberDecimal"
             android:ems="10"
             android:id="@+id/longitudeEditText3"
-            android:layout_row="7"
+            android:layout_row="4"
             android:layout_column="1" />
 
         <TextView
@@ -175,7 +121,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Trip Info"
             android:id="@+id/textView5"
-            android:layout_row="8"
+            android:layout_row="5"
             android:layout_column="0" />
 
         <EditText
@@ -184,7 +130,7 @@
             android:inputType="textMultiLine"
             android:ems="10"
             android:id="@+id/tripInfoEditText4"
-            android:layout_row="8"
+            android:layout_row="5"
             android:layout_column="1" />
 
         <TextView
@@ -193,14 +139,14 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Type"
             android:id="@+id/typeTextView"
-            android:layout_row="9"
+            android:layout_row="6"
             android:layout_column="0" />
 
         <Spinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/spinner"
-            android:layout_row="9"
+            android:layout_row="6"
             android:layout_column="1"
             android:spinnerMode="dropdown" />
 
