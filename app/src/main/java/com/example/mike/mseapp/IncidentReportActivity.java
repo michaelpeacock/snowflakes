@@ -1,14 +1,15 @@
 package com.example.mike.mseapp;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
@@ -131,12 +132,23 @@ public class IncidentReportActivity extends AppCompatActivity {
 
     }
 
+    private void showScheduleButtonAction() {
+        Intent intent = new Intent(this,ScheduleListActivity.class);
+        startActivity(intent);
+    }
 
+
+    private void showEmergencyButtonAction() {
+        Intent intent = new Intent(Intent.ACTION_DIAL);
+        intent.setData(Uri.parse("tel:0123456789"));
+        startActivity(intent);
+    }
 
     private void showApptActivity() {
         Intent intent = new Intent(this,IncidentListActivity.class);
         startActivity(intent);
     }
+
 
     private void showAllMapButtonAction() {
 
@@ -172,6 +184,14 @@ public class IncidentReportActivity extends AppCompatActivity {
         }
         if (id == R.id.action_show_all) {
             showAllMapButtonAction();
+            return true;
+        }
+        if (id == R.id.action_show_sched) {
+            showScheduleButtonAction();
+            return true;
+        }
+        if (id == R.id.action_show_emergency) {
+            showEmergencyButtonAction();
             return true;
         }
 
