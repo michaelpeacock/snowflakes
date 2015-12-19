@@ -7,71 +7,69 @@ import java.util.HashMap;
 
 /**
  * Created by Administrator on 12/18/15.
- */ /*
+ */
 public class ScheduleMgr {
     public ArrayList<ScheduleEntry> schedList;
-    private static IncidentMgr instance;
-    public HashMap<Integer, Incidents> apptMap = new HashMap<Integer, Incidents>();
+    private static ScheduleMgr instance;
+    public HashMap<Integer, ScheduleEntry> schedMap = new HashMap<Integer, ScheduleEntry>();
 
 
     public ScheduleMgr(){
 
         schedList = new ArrayList<ScheduleEntry>();
-        addFakeData("MSE", 39.974491, -74.976683,"Look out for polar bears." );
-        addFakeData("Atlantic City", 39.370066, -74.411981,"I went crabbing here." );
-        addFakeData("Jersey Mike's", 39.989987, -75.008992, "This place is on fire." );
-        addFakeData("Chipotle", 39.944278, -74.963405, "Watch out for E. Coli" );
+        //TODO Incorrect Data
+        addFakeData("MSE");
+        addFakeData("Atlantic City");
+        addFakeData("Jersey Mike's");
+        addFakeData("Chipotle");
     }
 
-    private void addFakeData(String location,double latitude, double longitude, String tripInfo) {
+    private void addFakeData(String location) {
         String name = "Michael Norris";
-        String phone = "609-817-3516";
+        String uLicense = "609-817-3516";
         Date date = Calendar.getInstance().getTime();
-        String email = "michaelv.norris@gmail.com";
 
         // add appoint to mgr
-        Incidents appt = new Incidents(name,phone,date,email, location, latitude,
-                longitude,tripInfo);
-        this.addNewAppt(appt);
+        ScheduleEntry sched = new ScheduleEntry(name,location, uLicense,date);
+        this.addNewSched(sched);
     }
 
 
-    public boolean addNewAppt(Incidents appt) {
-        apptMap.put(appt.getId(),appt);
-        return apptList.add(appt);
+    public boolean addNewSched(ScheduleEntry sched) {
+        schedMap.put(sched.getId(),sched);
+        return schedList.add(sched);
     }
 
-    public boolean deleteAppt(int index){
-        if(apptMap.isEmpty() || !apptMap.containsKey(index)){
+    public boolean deleteSched(int index){
+        if(schedMap.isEmpty() || !schedMap.containsKey(index)){
             return false;
         }
-        Incidents appt = apptMap.remove(index);
-        apptList.remove(appt);
+        ScheduleEntry sched = schedMap.remove(index);
+        schedList.remove(sched);
         return true;
     }
 
-    public boolean editAppt(int index){
-        if(apptMap.isEmpty() || !apptMap.containsKey(index)){
+    public boolean editSched(int index){
+        if(schedMap.isEmpty() || !schedMap.containsKey(index)){
             return false;
         }
-        Incidents appt = apptMap.get(index);
-        appt.setName("Norris Michael");
-        appt.setEmail("norris.mic@gmail.com");
-        appt.setDate(new Date(0));
+        ScheduleEntry sched = schedMap.get(index);
+        sched.setName("Norris Michael");
+        sched.setDate(new Date(0));
         return true;
     }
 
-    public Incidents getAppt(int index){
-        if(apptMap.isEmpty() || !apptMap.containsKey(index)){
+    public ScheduleEntry getSched(int index){
+        if(schedMap.isEmpty() || !schedMap.containsKey(index)){
             return null;
         }
-        return apptMap.get(index);
+        return schedMap.get(index);
     }
 
-    public static IncidentMgr getInstance() {
+    public static ScheduleMgr getInstance() {
         if(instance==null){
-            instance = new IncidentMgr();
+            instance = new ScheduleMgr();
         }
         return instance;
     }
-} */
+}

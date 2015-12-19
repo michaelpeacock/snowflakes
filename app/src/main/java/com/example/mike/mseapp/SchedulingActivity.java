@@ -21,6 +21,8 @@ import java.util.Date;
 
 public class SchedulingActivity extends AppCompatActivity {
 
+    ScheduleMgr scheduleMgr = ScheduleMgr.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +65,7 @@ public class SchedulingActivity extends AppCompatActivity {
                 (Spinner)  findViewById(R.id.spinner);
         spinner.setAdapter(stringArrayAdapter);
         spinner.setOnItemSelectedListener(onSpinner);
+        spinner.getSelectedItem().toString();
     }
 
     private void addButtonAction(View view) {
@@ -76,6 +79,15 @@ public class SchedulingActivity extends AppCompatActivity {
             name = nameText.getText().toString();
         } else {
             name = "Michael Norris";
+        }
+
+        //get uLicense
+        String uLicense = "";
+        TextView licenseText = (TextView) findViewById(R.id.emailEditText);
+        if(!licenseText.getText().toString().equalsIgnoreCase(uLicense)) {
+            uLicense = licenseText.getText().toString();
+        } else {
+            uLicense = "michaelv.norris@gmail.com";
         }
 
         // get date/time
@@ -95,20 +107,12 @@ public class SchedulingActivity extends AppCompatActivity {
         System.out.println("mvn Date: "+dateString);
         System.out.println("mvn Time: "+timeString);
 
-        //get
-        String email = "";
-        TextView emailText = (TextView) findViewById(R.id.emailEditText);
-        if(!emailText.getText().toString().equalsIgnoreCase(email)) {
-            email = emailText.getText().toString();
-        } else {
-            email = "michaelv.norris@gmail.com";
-        }
+        //TODO Pull location from spinner
+        String location = "";
 
-/*
-        //TODO modify for scheduling
         ScheduleEntry sched = new ScheduleEntry(name, location, uLicense, date);
-        ScheduleMgr.addNewAppt(sched);
-        showApptActivity();
+        scheduleMgr.addNewSched(sched);
+        showSchedActivity();
 
     }
 
@@ -136,10 +140,10 @@ public class SchedulingActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_edit_appt) {
-            showApptActivity();
+            showSchedActivity();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
-    } */
-    } }
+    }
+}
