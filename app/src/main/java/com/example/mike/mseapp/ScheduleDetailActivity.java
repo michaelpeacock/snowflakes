@@ -27,7 +27,7 @@ public class ScheduleDetailActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                editApptButtonAction();
+                editSchedButtonAction();
                 Snackbar.make(view, "Appointment Updated!", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
 
@@ -39,7 +39,7 @@ public class ScheduleDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //delApptButtonAction();
-                showMapButtonAction();
+                //showMapButtonAction();
                 Snackbar.make(view, "Appointment Deleted!", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
 
@@ -65,9 +65,9 @@ public class ScheduleDetailActivity extends AppCompatActivity {
             // Create the detail fragment and add it to the activity
             // using a fragment transaction.
             Bundle arguments = new Bundle();
-            arguments.putString(IncidentDetailFragment.ARG_ITEM_ID,
-                    getIntent().getStringExtra(IncidentDetailFragment.ARG_ITEM_ID));
-            IncidentDetailFragment fragment = new IncidentDetailFragment();
+            arguments.putString(ScheduleDetailFragment.ARG_ITEM_ID,
+                    getIntent().getStringExtra(ScheduleDetailFragment.ARG_ITEM_ID));
+            ScheduleDetailFragment fragment = new ScheduleDetailFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.appointment_detail_container, fragment)
@@ -75,10 +75,10 @@ public class ScheduleDetailActivity extends AppCompatActivity {
         }
     }
 
-    private void editApptButtonAction() {
-        int index = Integer.parseInt(getIntent().getStringExtra(IncidentDetailFragment.ARG_ITEM_ID));
+    private void editSchedButtonAction() {
+        int index = Integer.parseInt(getIntent().getStringExtra(ScheduleDetailFragment.ARG_ITEM_ID));
         System.out.println("mvn index="+index);
-        IncidentMgr.getInstance().editAppt(index);
+        ScheduleMgr.getInstance().editSched(index);
 
         // refresh stale data
         finish();
@@ -86,31 +86,14 @@ public class ScheduleDetailActivity extends AppCompatActivity {
     }
 
     private void delApptButtonAction() {
-        int index = Integer.parseInt(getIntent().getStringExtra(IncidentDetailFragment.ARG_ITEM_ID));
+        int index = Integer.parseInt(getIntent().getStringExtra(ScheduleDetailFragment.ARG_ITEM_ID));
         System.out.println("mvn index=" + index);
-        IncidentMgr.getInstance().deleteAppt(index);
+        ScheduleMgr.getInstance().deleteSched(index);
 
         // go back to list after delete
-        Intent intent = new Intent(this,IncidentListActivity.class);
+        Intent intent = new Intent(this,ScheduleListActivity.class);
         startActivity(intent);
     }
-
-    private void showMapButtonAction() {
-        int index = Integer.parseInt(getIntent().getStringExtra(IncidentDetailFragment.ARG_ITEM_ID));
-        System.out.println("mvn index=" + index);
-        Incidents appt = IncidentMgr.getInstance().getAppt(index);
-        //get lat/long
-        double latValue = appt.getLat();
-        double longValue =  appt.getLong();
-
-        Intent intent = new Intent(this,MapsActivity.class);
-        intent.putExtra("lat", Double.toString(latValue));
-        intent.putExtra("long", Double.toString(longValue));
-        intent.putExtra("index", Integer.toString(index));
-        startActivity(intent);
-    }
-
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -123,7 +106,7 @@ public class ScheduleDetailActivity extends AppCompatActivity {
             //
             // http://developer.android.com/design/patterns/navigation.html#up-vs-back
             //
-            NavUtils.navigateUpTo(this, new Intent(this, IncidentListActivity.class));
+            NavUtils.navigateUpTo(this, new Intent(this, ScheduleListActivity.class));
             return true;
         }
         return super.onOptionsItemSelected(item);

@@ -18,10 +18,10 @@ public class ScheduleMgr {
 
         schedList = new ArrayList<ScheduleEntry>();
         //TODO Incorrect Data
-        addFakeData("MSE");
-        addFakeData("Atlantic City");
-        addFakeData("Jersey Mike's");
-        addFakeData("Chipotle");
+        addFakeData("Different");
+        addFakeData("Locations");
+        addFakeData("For");
+        addFakeData("Debugging");
     }
 
     private void addFakeData(String location) {

@@ -136,9 +136,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         String userCredentials = email+"'"+pwd;
         String s = read_file(FILENAME);
 
-        if (s.contains(userCredentials))
-            return true;
-        return false;
+        return s.contains(userCredentials);
     }
 
     public String read_file(String filename) {
