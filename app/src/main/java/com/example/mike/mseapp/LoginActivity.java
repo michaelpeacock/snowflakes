@@ -3,6 +3,8 @@ package com.example.mike.mseapp;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -29,6 +31,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,6 +46,8 @@ import static android.Manifest.permission.READ_CONTACTS;
  * A login screen that offers login via email/password.
  */
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
+
+    private static String FILENAME = "pwd.txt";
 
     /**
      * Id to identity READ_CONTACTS permission request.
@@ -92,6 +102,58 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+
+    }
+
+    private void authenticateLogin(View view) {
+        String email = findViewById(R.id.email).toString();
+        String pwd = findViewById(R.id.password).toString();
+
+        boolean pass = authenticate(email, pwd);
+        if (pass) {
+            Intent intent = new Intent(this, SchedulingActivity.class);
+            startActivity(intent);
+        }
+    }
+
+    private void createUser(View view) {
+
+        Intent intent = new Intent(this, NewUser.class);
+        startActivity(intent);
+
+    }
+    private boolean authenticate(String email, String pwd) {
+
+        String userCredentials = email+","+pwd;
+        String s = read_file(FILENAME);
+
+        if (userCredentials.contentEquals(s))
+            return true;
+        return false;
+    }
+
+    public String read_file(String filename) {
+        try {
+            FileInputStream fis = openFileInput(filename);
+            InputStreamReader isr = new InputStreamReader(fis, "UTF-8");
+            BufferedReader bufferedReader = new BufferedReader(isr);
+            StringBuilder sb = new StringBuilder();
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                sb.append(line).append("\n");
+            }
+            return sb.toString();
+        } catch (FileNotFoundException e) {
+            return "";
+        } catch (UnsupportedEncodingException e) {
+            return "";
+        } catch (IOException e) {
+            return "";
+        }
+    }
+
+    public static String getFileName() {
+        return FILENAME;
     }
 
     private void populateAutoComplete() {
@@ -346,5 +408,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(false);
         }
     }
+
 }
 
