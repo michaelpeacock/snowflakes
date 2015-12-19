@@ -65,19 +65,23 @@
 
             <Button
                 android:id="@+id/loginBtn"
+                style="?android:textAppearanceSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="@string/loginBtn"
+                android:onClick="authenticateLogin"
                 android:textStyle="bold" />
 
 
             <Button
                 android:id="@+id/newUserBtn"
+                style="?android:textAppearanceSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="@string/newUserBtn"
+                android:onClick="createUser"
                 android:textStyle="bold" />
 
         </LinearLayout>
