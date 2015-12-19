@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Hunting and Fishing</string>
-    <string name="action_edit_appt">View Trip Information</string>
+    <string name="action_edit_appt">View Incident List</string>
+    <string name="action_show_all">View Incident Map</string>
     <string name="title_appointment_list">Trip Information</string>
     <string name="title_appointment_detail">Trip Detail</string>
     <string name="app_title">Hunting and Fishing Safety Managing Application!</string>
