@@ -22,8 +22,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".LoginActivity"
-            android:label="@string/app_name"
-            android:noHistory="true">
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -37,7 +36,11 @@
         <activity
             android:name=".IncidentListActivity"
             android:label="@string/title_appointment_list"
+            android:parentActivityName=".IncidentReportActivity"
             android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".IncidentReportActivity" />
         </activity>
         <activity
             android:name=".IncidentDetailActivity"
