@@ -3,10 +3,7 @@ package com.example.mike.mseapp;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -38,7 +35,7 @@ public class NewUser extends AppCompatActivity {
                 String email = ((TextView) findViewById(R.id.email1)).getText().toString();
                 String pwd = ((TextView) findViewById(R.id.password1)).getText().toString();
                 String userPwd = email + "'" + pwd;
-                writeToFile(userPwd);
+                writeToFile(LoginActivity.getFileName(),userPwd);
                 Intent intent = new Intent(view.getContext(), LoginActivity.class);
                 startActivity(intent);
             }
@@ -46,9 +43,9 @@ public class NewUser extends AppCompatActivity {
 
 
     }
-    private void writeToFile(String data) {
+    public void writeToFile(String fileName, String data) {
         try {
-            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(openFileOutput(LoginActivity.getFileName(), Context.MODE_APPEND));
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(openFileOutput(fileName, Context.MODE_APPEND));
             outputStreamWriter.write(data);
             outputStreamWriter.close();
 
