@@ -1,6 +1,8 @@
 package com.example.mike.mseapp;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -23,6 +25,16 @@ public class SchedulingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scheduling);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+                addButtonAction(view);
+            }
+        });
 
         AdapterView.OnItemSelectedListener onSpinner =
                 new AdapterView.OnItemSelectedListener() {
@@ -92,18 +104,18 @@ public class SchedulingActivity extends AppCompatActivity {
             email = "michaelv.norris@gmail.com";
         }
 
-
+/*
         //TODO modify for scheduling
-        ScheduleEntry appt = new Incidents(name, date, location);
-        apptMgr.addNewAppt(appt);
+        ScheduleEntry sched = new ScheduleEntry(name, location, uLicense, date);
+        ScheduleMgr.addNewAppt(sched);
         showApptActivity();
 
     }
 
 
 
-    private void showApptActivity() {
-        Intent intent = new Intent(this,IncidentListActivity.class);
+    private void showSchedActivity() {
+        Intent intent = new Intent(this,ScheduleListActivity.class);
         startActivity(intent);
     }
 
@@ -129,6 +141,5 @@ public class SchedulingActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-    }
-}
+    } */
+    } }

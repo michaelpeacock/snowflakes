@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 /**
  * Created by Administrator on 12/18/15.
- */
+ */ /*
 public class ScheduleMgr {
     public ArrayList<ScheduleEntry> schedList;
     private static IncidentMgr instance;
@@ -74,4 +74,4 @@ public class ScheduleMgr {
         }
         return instance;
     }
-}
+} */
