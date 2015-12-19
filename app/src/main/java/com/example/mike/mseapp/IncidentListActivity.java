@@ -48,7 +48,8 @@ public class IncidentListActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showAllMapButtonAction();
+                //showAllMapButtonAction();
+                showAddIncident();
                 Snackbar.make(view, "Show all on map", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
@@ -102,6 +103,13 @@ public class IncidentListActivity extends AppCompatActivity {
         intent.putExtra("lat", "0.0");
         intent.putExtra("long", "0.0");
         intent.putExtra("index", "-1");
+        startActivity(intent);
+    }
+
+    private void showAddIncident() {
+
+        System.out.println("mvn showAddIncident()");
+        Intent intent = new Intent(this,IncidentReportActivity.class);
         startActivity(intent);
     }
 
