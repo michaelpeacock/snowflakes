@@ -22,7 +22,7 @@ import java.util.Date;
 
 public class IncidentReportActivity extends AppCompatActivity {
 
-    ApptMgr apptMgr = ApptMgr.getInstance();
+    IncidentMgr incidentMgr = IncidentMgr.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -152,9 +152,9 @@ public class IncidentReportActivity extends AppCompatActivity {
             tripInfo = "Look out for polar bears.";
         }
         // add appoint to mgr
-        Appointments appt = new Appointments(name,phone,date,email, location, latitude,
+        Incidents appt = new Incidents(name,phone,date,email, location, latitude,
                 longitude,tripInfo);
-        apptMgr.addNewAppt(appt);
+        incidentMgr.addNewAppt(appt);
         showApptActivity();
 
     }
@@ -162,7 +162,7 @@ public class IncidentReportActivity extends AppCompatActivity {
 
 
     private void showApptActivity() {
-        Intent intent = new Intent(this,AppointmentListActivity.class);
+        Intent intent = new Intent(this,IncidentListActivity.class);
         startActivity(intent);
     }
 

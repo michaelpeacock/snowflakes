@@ -34,7 +34,7 @@
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".AppointmentListActivity"
+            android:name=".IncidentListActivity"
             android:label="@string/title_appointment_list"
             android:parentActivityName=".IncidentReportActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -43,13 +43,13 @@
                 android:value=".IncidentReportActivity" />
         </activity>
         <activity
-            android:name=".AppointmentDetailActivity"
+            android:name=".IncidentDetailActivity"
             android:label="@string/title_appointment_detail"
-            android:parentActivityName=".AppointmentListActivity"
+            android:parentActivityName=".IncidentListActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.mike.mseapp.AppointmentListActivity" />
+                android:value=".IncidentListActivity" />
         </activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
