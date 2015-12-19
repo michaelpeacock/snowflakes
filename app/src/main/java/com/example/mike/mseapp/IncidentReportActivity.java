@@ -138,6 +138,18 @@ public class IncidentReportActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    private void showAllMapButtonAction() {
+
+        System.out.println("mvn showAllCalled()");
+
+
+        Intent intent = new Intent(this,MapsActivity.class);
+        intent.putExtra("lat", "0.0");
+        intent.putExtra("long", "0.0");
+        intent.putExtra("index", "-1");
+        startActivity(intent);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -156,6 +168,10 @@ public class IncidentReportActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_edit_appt) {
             showApptActivity();
+            return true;
+        }
+        if (id == R.id.action_show_all) {
+            showAllMapButtonAction();
             return true;
         }
 
