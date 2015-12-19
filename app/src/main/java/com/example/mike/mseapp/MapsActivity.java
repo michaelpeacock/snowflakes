@@ -1,20 +1,16 @@
 package com.example.mike.mseapp;
 
-import android.location.Location;
 import android.net.Uri;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -76,7 +72,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private void showOne(){
         // get item
-        Appointments appt = ApptMgr.getInstance().getAppt(index);
+        Incidents appt = IncidentMgr.getInstance().getAppt(index);
 
         // Add a marker in Sydney and move the camera
         LatLng latlong = new LatLng(latitude, longitude);
@@ -92,7 +88,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private void showAll(){
 
         // get item
-        for(Appointments appt : ApptMgr.getInstance().apptList) {
+        for(Incidents appt : IncidentMgr.getInstance().apptList) {
             // Add a marker in Sydney and move the camera
             latitude = appt.getLat();
             longitude = appt.getLong();

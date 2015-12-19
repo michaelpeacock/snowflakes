@@ -9,10 +9,10 @@
     android:divider="?android:attr/dividerHorizontal"
     android:orientation="horizontal"
     android:showDividers="middle"
-    tools:context="com.example.mike.mseapp.AppointmentListActivity">
+    tools:context=".IncidentListActivity">
 
     <!--
-    This layout is a two-pane layout for the Appointments
+    This layout is a two-pane layout for the Incidents
     master/detail flow.
     
     -->
@@ -26,7 +26,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         app:layoutManager="LinearLayoutManager"
-        tools:context="com.example.mike.mseapp.AppointmentListActivity"
+        tools:context=".IncidentListActivity"
         tools:listitem="@layout/appointment_list_content" />
 
     <FrameLayout
