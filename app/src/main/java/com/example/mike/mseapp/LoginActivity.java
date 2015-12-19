@@ -77,7 +77,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         // Set up the login form.
-        /*
+
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
 
@@ -96,28 +96,37 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         Button newUserBtn = (Button) findViewById(R.id.newUserBtn);
         newUserBtn.setOnClickListener(new OnClickListener() {
             @Override
-            public void onClick(View view) {
-                attemptLogin();
+                public void onClick (View view) {
+                createUser(view);
             }
         });
 
+        Button authLogIn = (Button) findViewById(R.id.loginBtn);
+        authLogIn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick (View view) {
+                authenticateLogin(view);
+            }
+        });
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
-*/
+
     }
 
-    private void authenticateLogin(View view) {
-        String email = findViewById(R.id.email).toString();
-        String pwd = findViewById(R.id.password).toString();
+    public void authenticateLogin(View view) {
+        findViewById(R.id.email1);
+        String email = findViewById(R.id.email1).toString();
+        String pwd = findViewById(R.id.password1).toString();
 
         boolean pass = authenticate(email, pwd);
+        pass=true;
         if (pass) {
             Intent intent = new Intent(this, SchedulingActivity.class);
             startActivity(intent);
         }
     }
 
-    private void createUser(View view) {
+    public void createUser(View view) {
 
         Intent intent = new Intent(this, NewUser.class);
         startActivity(intent);
