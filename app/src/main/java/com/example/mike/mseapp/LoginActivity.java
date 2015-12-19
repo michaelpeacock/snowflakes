@@ -93,7 +93,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         Button newUserBtn = (Button) findViewById(R.id.newUserBtn);
         newUserBtn.setOnClickListener(new OnClickListener() {
             @Override
-                public void onClick (View view) {
+            public void onClick (View view) {
                 createUser(view);
             }
         });
@@ -102,7 +102,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         authLogIn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick (View view) {
-                authenticateLogin(view);
+                attemptLogin();
             }
         });
         mLoginFormView = findViewById(R.id.login_form);
@@ -226,7 +226,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         String password = mPasswordView.getText().toString();
 
         boolean cancel = false;
-        View focusView = null;
+        View focusView = mEmailView;
 
         // Check for a valid password, if the user entered one.
         if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
@@ -246,7 +246,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             cancel = true;
         }
 
-        if (cancel) {
+        if (cancel || authenticate(email, password)) {
             // There was an error; don't attempt login and focus the first
             // form field with an error.
             focusView.requestFocus();
@@ -254,8 +254,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
             showProgress(true);
-            mAuthTask = new UserLoginTask(email, password);
-            mAuthTask.execute((Void) null);
+            Intent intent = new Intent(this, IncidentListActivity.class);
+            startActivity(intent);
+            finish();
+           // mAuthTask = new UserLoginTask(email, password);
+           // mAuthTask.execute((Void) null);
         }
     }
 
@@ -417,4 +420,3 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     }
 
 }
-
