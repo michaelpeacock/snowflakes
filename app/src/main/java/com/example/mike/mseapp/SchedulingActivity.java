@@ -65,7 +65,6 @@ public class SchedulingActivity extends AppCompatActivity {
                 (Spinner)  findViewById(R.id.spinner);
         spinner.setAdapter(stringArrayAdapter);
         spinner.setOnItemSelectedListener(onSpinner);
-        spinner.getSelectedItem().toString();
     }
 
     private void addButtonAction(View view) {
@@ -74,21 +73,21 @@ public class SchedulingActivity extends AppCompatActivity {
         //TODO edit to retrieve from logged on user
         // get name
         String name = "";
-//        TextView nameText = (TextView) findViewById(R.id.nameEditText);
-//        if(!nameText.getText().toString().equalsIgnoreCase(name)) {
-//            name = nameText.getText().toString();
-//        } else {
-//            name = "Michael Norris";
-//        }
+        TextView nameText = (TextView) findViewById(R.id.nameEditText);
+        if(!nameText.getText().toString().equalsIgnoreCase(name)) {
+           name = nameText.getText().toString();
+        } else {
+            name = "Michael Norris";
+        }
 
         //get uLicense
         String uLicense = "";
-//        TextView licenseText = (TextView) findViewById(R.id.emailEditText);
-//        if(!licenseText.getText().toString().equalsIgnoreCase(uLicense)) {
-//            uLicense = licenseText.getText().toString();
-//        } else {
-//            uLicense = "michaelv.norris@gmail.com";
-//        }
+        TextView licenseText = (TextView) findViewById(R.id.licenseText);
+        if(!licenseText.getText().toString().equalsIgnoreCase(uLicense)) {
+            uLicense = licenseText.getText().toString();
+        } else {
+            uLicense = "michaelv.norris@gmail.com";
+        }
 
         // get date/time
         Date date = Calendar.getInstance().getTime();

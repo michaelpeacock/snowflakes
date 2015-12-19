@@ -19,6 +19,7 @@ public class ScheduleEntry {
 
 
     public ScheduleEntry(String name, String location, String uLicense, Date date) {
+        this.name = name;
         this.location = location;
         this.uLicense = uLicense;
         this.date = date;
